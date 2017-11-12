@@ -1,0 +1,12 @@
+image: quay.io/librelabs/ci:dind17
+
+adfs plugin-test:
+  stage: test
+  before_script:
+    - git clone https://github.com/asdf-vm/asdf.git
+    - . asdf/asdf.sh
+  script:
+    - asdf plugin-add terragrunt ./
+    - asdf list-all terragrunt
+    - asdf plugin-test terragrunt ./ 'terragrunt --version'
+

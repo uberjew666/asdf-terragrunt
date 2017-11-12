@@ -1,0 +1,13 @@
+# https://github.com/travis-ci/travis-ci/issues/5931
+
+language: c
+os:
+  - linux
+  - osx
+before_script:
+  - git clone https://github.com/asdf-vm/asdf.git
+  - . asdf/asdf.sh
+script: 
+  - asdf plugin-add terragrunt ./
+  - asdf list-all terragrunt
+  - asdf plugin-test terragrunt ./ 'terragrunt --version'
