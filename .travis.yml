@@ -7,5 +7,4 @@ script:
   - asdf list-all terragrunt
   - asdf plugin-test terragrunt ./ 'terragrunt --version'
 os:
-  - linux
   - osx
