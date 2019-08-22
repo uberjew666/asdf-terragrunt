@@ -27,9 +27,16 @@ install() {
   mkdir -p "${bin_install_path}"
 
   echo "Downloading terragrunt from ${download_url}"
-  curl -sL "$download_url" -o "$bin_path"
+
+  STATUSCODE=$(curl --write-out "%{http_code}" -Lo "$bin_path" -C - "$download_url")
+
+  if test "${STATUSCODE}" -ne 200; then
+    echo "Binary for version '${version}' was not found or could not be retrieved."
+    exit 1
+  fi
+
   chmod +x "$bin_path"
 }
 
-install "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH" 
+install "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
 
