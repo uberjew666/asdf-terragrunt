@@ -1,10 +1,11 @@
-language: c
+language: minimal
 before_script:
   - git clone https://github.com/asdf-vm/asdf.git
   - . asdf/asdf.sh
-script: 
+script:
   - asdf plugin-add terragrunt ./
   - asdf list-all terragrunt
   - asdf plugin-test terragrunt ./ 'terragrunt --version'
 os:
+  - linux
   - osx
