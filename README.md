@@ -1,6 +1,6 @@
 # asdf-terragrunt
 
-![Build Status (Github)](https://github.com/lotia/asdf-terragrunt/workflows/CI/badge.svg)
+[![Build Status](https://github.com/lotia/asdf-terragrunt/workflows/CI/badge.svg)](https://github.com/lotia/asdf-terragrunt/actions?query=workflow%3ACI)
 
 Originally from [td7x / asdf / terragrunt on gitlab](https://gitlab.com/td7x/asdf/terragrunt) where it no longer appears to be maintained.
 
