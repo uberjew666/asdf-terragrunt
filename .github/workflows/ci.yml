@@ -36,4 +36,5 @@ jobs:
       - name: List available terragrunt versions
         run: asdf list-all terragrunt
 
-      - name: asdf plugin-test terragrunt ./ 'terragrunt --version'
+      - name: Test the plugin
+        run: asdf plugin-test terragrunt ./ 'terragrunt --version'
