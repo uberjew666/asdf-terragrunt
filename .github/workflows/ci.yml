@@ -27,14 +27,9 @@ jobs:
           repository: asdf-vm/asdf.git
           ref: refs/heads/master
 
-      - name: Enable asdf
-        run: . ../asdf.git/asdf.sh
-
-      - name: Install the plugin
-        run: asdf plugin-add terragrunt ./
-
-      - name: List available terragrunt versions
-        run: asdf list-all terragrunt
-
-      - name: Test the plugin
-        run: asdf plugin-test terragrunt ./ 'terragrunt --version'
+      - name: Setup asdf and run test
+        run: |
+          . ../asdf.git/asdf.sh
+          asdf plugin-add terragrunt ./
+          asdf list-all terragrunt
+          asdf plugin-test terragrunt ./ 'terragrunt --version'
