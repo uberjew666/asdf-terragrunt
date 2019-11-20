@@ -6,11 +6,16 @@ on:
   - pull_request
 
 jobs:
-  build:
+  test:
+    runs-on: {{ $matrix.os }}
 
-    runs-on:
-      - ubuntu-latest
-      - macos-latest
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
 
     steps:
     - name: clone the plugin repo
