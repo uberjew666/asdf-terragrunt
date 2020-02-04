@@ -18,21 +18,9 @@ jobs:
           - macos-latest
 
     steps:
-      - name: clone the plugin repo
-        uses: actions/checkout@v1
-
-      - name: clone asdf
-        uses: actions/checkout@v1
+      - name: asdf_plugin_test
+        uses: asdf-vm/actions/plugin-test@v1.0.0
         with:
-          repository: asdf-vm/asdf.git
-          ref: refs/heads/master
-
-      - name: Setup asdf and run test
-        run: |
-          . ../asdf.git/asdf.sh
-          asdf plugin-add terragrunt ./
-          asdf list-all terragrunt
-          asdf plugin-test terragrunt ./ 'terragrunt --version'
-        shell: bash
+          command: "terragrunt --version"
         env:
-          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }} # automatically provided
