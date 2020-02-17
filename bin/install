@@ -28,7 +28,7 @@ install() {
 
   echo "Downloading terragrunt from ${download_url}"
 
-  STATUSCODE=$(curl --write-out "%{http_code}" -Lo "$bin_path" -C - "$download_url")
+  STATUSCODE=$(curl -q --write-out "%{http_code}" -Lo "$bin_path" -C - "$download_url")
 
   if test "${STATUSCODE}" -ne 200; then
     echo "Binary for version '${version}' was not found or could not be retrieved."
