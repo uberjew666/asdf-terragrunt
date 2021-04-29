@@ -18,8 +18,16 @@ install() {
 
   local platform
   [ "Linux" = "$(uname)" ] && platform="linux" || platform="darwin"
+  
   local arch
-  [ "x86_64" = "$(uname -m)" ] && arch="amd64" || arch="386"
+  uname_arch=$(uname -m)
+  if [ "x86_64" = $uname_arch ]; then 
+	  arch="amd64" 
+  elif [ "arm64" =  $uname_arch ]; then
+	  arch="arm64"
+  else
+   	arch="386"
+  fi
 
   local download_url
   download_url="https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_${platform}_${arch}"
