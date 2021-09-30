@@ -18,15 +18,15 @@ install() {
 
   local platform
   [ "Linux" = "$(uname)" ] && platform="linux" || platform="darwin"
-  
+
   local arch
-  uname_arch=$(uname -m)
-  if [ "x86_64" = $uname_arch ]; then 
-	  arch="amd64" 
-  elif [ "arm64" =  $uname_arch ]; then
-	  arch="arm64"
+  machine=$(uname -m)
+  if [[ $machine == "arm64" ]] || [[ $machine == "aarch64" ]]; then
+    arch="arm64"
+  elif [[ $machine == *"386"* ]]; then
+    arch="386"
   else
-   	arch="386"
+    arch="amd64"
   fi
 
   local download_url
@@ -47,4 +47,3 @@ install() {
 }
 
 install "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
-
