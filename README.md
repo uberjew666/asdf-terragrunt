@@ -1,3 +1,5 @@
+[![Build Status](https://github.com/ohmer/asdf-terragrunt/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/ohmer/asdf-terragrunt/actions/workflows/ci.yml)
+
 # asdf-terragrunt
 
 Originally from https://github.com/lotia/asdf-terragrunt where it no longer appears to be maintained.
